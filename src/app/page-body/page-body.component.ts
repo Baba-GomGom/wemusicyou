@@ -22,7 +22,7 @@ export class PageBodyComponent implements OnInit, AfterViewInit {
       const pexelsBody = await this.pexelsService.getPexelImage().toPromise();
       const urlCssProperty = `url("${pexelsBody.photos[0].src.landscape}")`;
       this.renderer.setStyle(this.pageBody.nativeElement, 'background-image', urlCssProperty);  
-    }, 50000) //50 sec
+    }, 50000); //50 sec
   }
 
   ngOnInit(): void {

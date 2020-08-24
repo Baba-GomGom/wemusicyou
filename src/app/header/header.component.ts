@@ -14,7 +14,7 @@ const REDIRECT_URL = 'https://gomri.fr/wemusicyou';
 export class HeaderComponent implements OnInit {
 
   constructor() {
-    
+
   }
 
   ngOnInit(): void {

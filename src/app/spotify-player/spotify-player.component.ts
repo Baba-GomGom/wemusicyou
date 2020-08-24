@@ -12,4 +12,7 @@ export class SpotifyPlayerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public changeIframeSrc(): void {
+    document.getElementById('myIframe').src = sites[Math.floor(Math.random() * sites.length)]; 
+  }
 }
