@@ -13,6 +13,6 @@ export class SpotifyPlayerComponent implements OnInit {
   }
 
   public changeIframeSrc(): void {
-    document.getElementById('myIframe').src = sites[Math.floor(Math.random() * sites.length)]; 
+    // document.getElementById('myIframe').src = sites[Math.floor(Math.random() * sites.length)]; 
   }
 }

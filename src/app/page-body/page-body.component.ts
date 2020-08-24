@@ -13,7 +13,7 @@ export class PageBodyComponent implements OnInit, AfterViewInit {
   constructor(private renderer: Renderer2, private pexelsService: PexelsService) { }
 
 
-  async ngAfterViewInit() {
+  public async ngAfterViewInit():Promise<any> {
     const pexelsBody = await this.pexelsService.getPexelImage().toPromise();
     const urlCssProperty = `url("${pexelsBody.photos[0].src.landscape}")`;
     this.renderer.setStyle(this.pageBody.nativeElement, 'background-image', urlCssProperty); 
