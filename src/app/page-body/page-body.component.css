@@ -1,0 +1,13 @@
+.page-body {
+    width: 100%;
+    min-height: 100%;
+        
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+    background-position: center;
+    background-size: cover;
+
+    /* -webkit-transition: background-image 0.2s ease-in-out; */
+    /* transition: background-image 0.2s ease-in-out; */
+}
