@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyService } from '../services/spotify/spotify.service';
+
 
 @Component({
   selector: 'app-spotify-player',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpotifyPlayerComponent implements OnInit {
 
-  constructor() { }
+  public spotifyResponse = null;
+  constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit(): void {
   }
@@ -15,4 +18,14 @@ export class SpotifyPlayerComponent implements OnInit {
   public changeIframeSrc(): void {
     // document.getElementById('myIframe').src = sites[Math.floor(Math.random() * sites.length)]; 
   }
+
+  public async spotifySearch(): Promise<any> {
+    const res = await this.spotifyService.search('album', 'booba').toPromise();
+    
+    
+    
+    
+    this.spotifyResponse = res;
+  }
+
 }

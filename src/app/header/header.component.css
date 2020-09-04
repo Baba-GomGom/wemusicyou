@@ -2,9 +2,8 @@
     box-sizing: border-box;
     display: block;
     height: 71px;
-    position: fixed;
-    top: 0;
-    width: 100%;
+    top: 0; 
     z-index: 20;
     background-color: darkmagenta;
+    width: 100%;
 }

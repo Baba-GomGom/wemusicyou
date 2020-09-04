@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SpotifyService } from '../services/spotify/spotify.service';
-
 const CLIENTS_ID = {
   spotity: 'bac7d5a03faa42a3a986aa3d568a7f0c'
 };
@@ -15,7 +13,7 @@ const REDIRECT_URL = 'https://gomri.fr/wemusicyou';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private spotifyService: SpotifyService) {
+  constructor() {
 
   }
 
@@ -33,13 +31,5 @@ export class HeaderComponent implements OnInit {
 
     window.location.href = url;
   }
-
-  public async spotifySearch() {
-
-    const res = await this.spotifyService.search('album', 'booba').toPromise();
-    console.log(res);
-
-  }
-
 }
 
