@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DezeerService } from '../services/deezer/dezeer.service';
 
 const CLIENTS_ID = {
   spotity: 'bac7d5a03faa42a3a986aa3d568a7f0c'
@@ -13,7 +14,7 @@ const REDIRECT_URL = 'https://gomri.fr/wemusicyou';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(private deezerService: DezeerService) {
 
   }
 
@@ -30,6 +31,19 @@ export class HeaderComponent implements OnInit {
       + '&redirect_uri=' + encodeURIComponent(REDIRECT_URL);
 
     window.location.href = url;
+  }
+  
+  
+  public deezerLogin(): void {
+    console.log('1');
+    this.deezerService.login();
+
+  }
+
+  public async getArtist()  {
+
+    const res = await this.deezerService.getAlbum().toPromise();
+    console.log(res);
   }
 }
 
