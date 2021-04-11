@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 import { DezeerService } from '../services/deezer/dezeer.service';
 
 const CLIENTS_ID = {
@@ -10,15 +11,24 @@ const REDIRECT_URL = 'https://gomri.fr/wemusicyou';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('tabGroup') tabGroup;
 
   constructor(private deezerService: DezeerService) {
-
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    console.log('afterViewInit => ', this.tabGroup.selectedIndex);
+  }
+
+  public tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    console.log('index => ', tabChangeEvent.tab.textLabel);
   }
 
   public spotifyLogin(): void {
@@ -32,16 +42,13 @@ export class HeaderComponent implements OnInit {
 
     window.location.href = url;
   }
-  
-  
+    
   public deezerLogin(): void {
     console.log('1');
     this.deezerService.login();
-
   }
 
   public async getArtist()  {
-
     const res = await this.deezerService.getAlbum().toPromise();
     console.log(res);
   }

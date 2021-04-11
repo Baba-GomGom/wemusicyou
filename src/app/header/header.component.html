@@ -1,15 +1,70 @@
 <div class="header-wrapper">
 
-    <button (click)="spotifyLogin()">
-        Login Spotify
-    </button>
+    <div class="left-menu">
+        <button (click)="spotifyLogin()">
+            Login Spotify
+        </button>
 
-    <button (click)="deezerLogin()">
-        Login Deezer
-    </button>
+        <button (click)="deezerLogin()">
+            Login Deezer
+        </button>
 
-    <button (click)="getArtist()">
-        Get Info
-    </button>
+        <button (click)="getArtist()">
+            Get Info
+        </button>
+
+    </div>
+
+    <div class="right-menu">
+
+        <div class="searchBox">
+            <div class="searchInput">
+            <input type="text" class="searchInput" name="" placeholder="Search">
+            <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
+                <mat-tab label='album'>
+                    <ng-template mat-tab-label>
+                        <i class="material-icons">library_music</i>
+                    </ng-template>
+                </mat-tab>
+    
+                <mat-tab label='track'>
+                    <ng-template mat-tab-label>
+                        <i class="material-icons">music_note</i>
+                    </ng-template>
+                </mat-tab>
+    
+                <mat-tab label='podcasts'>
+                    <ng-template mat-tab-label>
+                        <i class="material-icons">podcasts</i>
+                    </ng-template>
+                </mat-tab>
+    
+                <mat-tab label='playlist'>
+                    <ng-template mat-tab-label>
+                        <i class="material-icons">queue_music</i>
+                    </ng-template>
+                </mat-tab>
+    
+                <mat-tab label='radio'>
+                    <ng-template mat-tab-label>
+                        <div class="tab-container">
+                            <i class="material-icons">radio</i>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    
+            <button class="searchButton" href="#">
+                <i class="material-icons">
+                    search
+                </i>
+            </button>
+        </div>
+
+
+    </div>
+
+
 
 </div>
