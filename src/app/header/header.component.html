@@ -1,70 +1,52 @@
 <div class="header-wrapper">
+  <div class="left-menu">
+    <button (click)="deezerLogin()">Login Deezer</button>
+  </div>
 
-    <div class="left-menu">
-        <button (click)="spotifyLogin()">
-            Login Spotify
-        </button>
+  <div class="right-menu">
+    <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
 
-        <button (click)="deezerLogin()">
-            Login Deezer
-        </button>
+      <mat-tab label="search">
+        <ng-template mat-tab-label>
+          <i class="material-icons">music_note</i>
+        </ng-template>
+      </mat-tab>
+      <mat-tab label="album">
+        <ng-template mat-tab-label>
+          <i class="material-icons">library_music</i>
+        </ng-template>
+      </mat-tab>
 
-        <button (click)="getArtist()">
-            Get Info
-        </button>
+      <mat-tab label="podcasts">
+        <ng-template mat-tab-label>
+          <i class="material-icons">podcasts</i>
+        </ng-template>
+      </mat-tab>
 
+      <mat-tab label="playlist">
+        <ng-template mat-tab-label>
+          <i class="material-icons">queue_music</i>
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="radio">
+        <ng-template mat-tab-label>
+          <div class="tab-container">
+            <i class="material-icons">radio</i>
+          </div>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+    <div class="search-wrapper">
+        <form class="search-box">
+            <input  id="search-input" type="text" placeholder="{{getPlaceholder}}" (keydown.enter)="processSearch()" #searchInput  />
+            <button type="reset"></button>
+          </form>
+    
     </div>
+  </div>
+</div>
 
-    <div class="right-menu">
-
-        <div class="searchBox">
-            <div class="searchInput">
-            <input type="text" class="searchInput" name="" placeholder="Search">
-            <mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
-                <mat-tab label='album'>
-                    <ng-template mat-tab-label>
-                        <i class="material-icons">library_music</i>
-                    </ng-template>
-                </mat-tab>
-    
-                <mat-tab label='track'>
-                    <ng-template mat-tab-label>
-                        <i class="material-icons">music_note</i>
-                    </ng-template>
-                </mat-tab>
-    
-                <mat-tab label='podcasts'>
-                    <ng-template mat-tab-label>
-                        <i class="material-icons">podcasts</i>
-                    </ng-template>
-                </mat-tab>
-    
-                <mat-tab label='playlist'>
-                    <ng-template mat-tab-label>
-                        <i class="material-icons">queue_music</i>
-                    </ng-template>
-                </mat-tab>
-    
-                <mat-tab label='radio'>
-                    <ng-template mat-tab-label>
-                        <div class="tab-container">
-                            <i class="material-icons">radio</i>
-                        </div>
-                    </ng-template>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
-    
-            <button class="searchButton" href="#">
-                <i class="material-icons">
-                    search
-                </i>
-            </button>
-        </div>
-
-
-    </div>
-
-
-
+<div id=player>
+    <iframe id="deezer-widget" src="https://widget.deezer.com/widget/dark/album/302127?app_id=457142&autoplay=false&radius=true&tracklist=true" width="700" height="300" allowtransparency="true" allowfullscreen="true" allow="encrypted-media"></iframe>
 </div>

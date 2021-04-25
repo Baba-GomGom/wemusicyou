@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { DezeerService } from '../services/deezer/dezeer.service';
 
@@ -15,8 +15,12 @@ const REDIRECT_URL = 'https://gomri.fr/wemusicyou';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('searchInput', {static: true}) searchInputElement: ElementRef;
   @ViewChild('tabGroup') tabGroup;
 
+  public selectedCategory = 'search';
+
+  
   constructor(private deezerService: DezeerService) {
   }
 
@@ -28,7 +32,20 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   public tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    this.selectedCategory = tabChangeEvent.tab.textLabel;
     console.log('index => ', tabChangeEvent.tab.textLabel);
+  }
+
+  public get getPlaceholder(): string {
+    return `Search for ${this.selectedCategory}`;
+  }
+
+  public async processSearch() {
+
+    //const value = document.getElementById('search-input').native;
+    const searchInput = this.searchInputElement.nativeElement.value;
+    const res = await this.deezerService.processRequest( this.selectedCategory, searchInput).toPromise();
+    console.log(res);
   }
 
   public spotifyLogin(): void {
@@ -46,11 +63,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public deezerLogin(): void {
     console.log('1');
     this.deezerService.login();
-  }
-
-  public async getArtist()  {
-    const res = await this.deezerService.getAlbum().toPromise();
-    console.log(res);
   }
 }
 

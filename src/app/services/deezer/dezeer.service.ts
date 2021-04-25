@@ -1,5 +1,4 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -24,10 +23,11 @@ export class DezeerService {
       window.location.href = `${baseUrl}?${params.toString()}`;
   }
 
-  public getAlbum(): Observable<any> {
-    const token = 'fr996d8e279f395dd2cc212bbfd2ca3f';
+  public processRequest(searchType: string, searchInput: string): Observable<any> {
+    const token = 'fr6047d0bfb5dc449eb6f3f9b3f1947c';
+    const basrUrl  = "https://api.deezer.com/";
     
-    return this.httpClient.get("https://api.deezer.com/search?q=ninho");
+    return this.httpClient.get(`${basrUrl}${searchType}?q=${searchInput}`)
     
   }
 }

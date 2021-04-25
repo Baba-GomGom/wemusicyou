@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import 'https://fonts.googleapis.com/css?family=Open + Sans';
+@import "https://fonts.googleapis.com/css?family=Raleway:400,400i,700";
+
 
 * {
   margin: 0;
@@ -16,15 +18,14 @@ body {
 
 }
 
+
 .mat-tab-group {
   margin-bottom: 48px;
   display: flex;
-  flex-direction: column;
 }
 
 .mat-tab-labels {
   display: flex;
-  flex-flow: column;
 }
 
 .material-icons {
@@ -40,4 +41,3 @@ body {
   justify-content: center;
   flex-flow: column;
 }
-
