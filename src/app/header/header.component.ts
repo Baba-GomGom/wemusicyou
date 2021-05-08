@@ -48,6 +48,18 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     console.log(res);
   }
 
+    
+  public deezerLogin(): void {
+    console.log('1');
+    this.deezerService.login();
+  }
+}
+
+
+
+/*
+
+
   public spotifyLogin(): void {
     const scopes = 'user-read-private user-read-email';
     const url = 'https://accounts.spotify.com/authorize'
@@ -59,10 +71,5 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     window.location.href = url;
   }
-    
-  public deezerLogin(): void {
-    console.log('1');
-    this.deezerService.login();
-  }
-}
 
+*/
