@@ -27,7 +27,7 @@ export class DezeerService {
   }
 
   public async getToken() {
-    const code = 'frfa70e30b026b1de1aadeff78a4f67b';
+    const code = 'frb32afa1ecd6a07efc4195e06a00169';
     const tokenUrl = `https://connect.deezer.com/oauth/access_token.php?app_id=${this.app_id}&secret=${this.key}&code=${code}`;
     const res = await this.httpClient.get(tokenUrl).toPromise();
     console.log('TOKEN', res);
